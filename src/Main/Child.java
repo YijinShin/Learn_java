@@ -16,6 +16,21 @@ class Class2 extends Class1{int b;}
 class Class2_bro extends Class1{int b_1;}
 class Class3 extends Class2{int c;}
 
+//Interface ------------------------------------------------------------------
+interface Animal{ //일반 상수, 추상 메소드만 가질 수 있음. 
+	public static final int age = 10; //필드는 public static final 이어야함. 
+	public abstract void cry(); // public abstract여야함.
+}
+interface Pet{ //일반 상수, 추상 메소드만 가질 수 있음. 
+	public abstract void play(); // 추상 메소드
+}
+
+class Cat implements Animal, Pet{
+	public void cry(){System.out.println("야옹");} 
+	public void play(){System.out.println("놀자");} 
+}
+
+
 //상속받은 static, instance 차이 확인 -------------------------------------------
 class Parent{
 	static int num1 = 1; // class variable, default
@@ -26,7 +41,6 @@ class Parent{
 	Parent(){a=10;}
 	Parent(int n){a = n;}
 }
-
 
 public class Child extends Parent{
 	int num4 = 4;
