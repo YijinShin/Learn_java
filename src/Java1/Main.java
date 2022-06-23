@@ -1,3 +1,5 @@
+/*java.lang 패키지 공부*/
+
 package Java1;
 import java.util.*;
 
@@ -62,6 +64,8 @@ public class Main {
 		String str2 = new String("Java");
 		System.out.println(str2.concat("수업")); //기존 문자열 뒤에 더 붙임. 
 		System.out.println(str2); // 원본이 바뀌지 않음!
+		String str2_change = str2.concat("수업"); //저장하고싶으면 새로운string이 필요함. 
+		System.out.println(str2_change); 
 		System.out.println();
 		
 		//java.lang.String: indexOf()------------------------------------------
@@ -69,11 +73,84 @@ public class Main {
 		System.out.println(str2.indexOf('h')); //없으면 -1
 		System.out.println();
 		
-		//java.lang.String: trim()------------------------------------------
+		//java.lang.String: trim()--------------------------------------------
 		String str3 = "    Java    ";
 		System.out.println(str3 + "hi");
 		System.out.println(str3.trim() + "hi"); // 공백 없앰. 
 		System.out.println(str3); //trim이 원본을 바꾸지는 않음! 
+		System.out.println();
+		
+		//java.lang.StringBuffer: append()-------------------------------------
+		StringBuffer strbf1 = new StringBuffer("Java");
+		strbf1.append("Class"); //concat이랑 다르게 원본을 바꿈. 
+		System.out.println(strbf1);
+		System.out.println();
+		
+		//java.lang.StringBuffer: capacity()-------------------------------------
+		System.out.println(strbf1.capacity()); // java 4글자에 16자리 여유분 추가되어 총 20자리여야함. 
+		System.out.println();
+		
+		//java.lang.StringBuffer: delete()-------------------------------------
+		strbf1.delete(1, 3); // 인덱스 2~3을 지움. 
+		System.out.println(strbf1);
+		System.out.println();
+		
+		//java.lang.StringBuffer: insert()-------------------------------------
+		strbf1.insert(2,"va"); // index 2부터 삽입.
+		System.out.println(strbf1);
+		System.out.println();
+		
+		//java.lang.Math: random()-------------------------------------
+		/*방법1*/System.out.println((int)(Math.random()*100)); // 0~99
+		System.out.println((int)(Math.random()*6));//0~5
+		System.out.println((int)(Math.random()*6)+1); // 1~6
+		System.out.println((int)(Math.random()*6)+3); // 3~6
+		
+		/*방법2*/Random ran = new Random();
+		System.out.println(ran.nextInt(100));           // 0 ~ 99
+		System.out.println();
+		
+		//java.lang.Math: abs()-------------------------------------
+		//절댓값 반환 
+		System.out.println(Math.abs(10));    // 10
+		System.out.println(Math.abs(-10));   // 10
+		System.out.println(Math.abs(-3.14)); // 3.14
+		System.out.println();
+		
+		//java.lang.Math: floor(), ceil(), round()-------------------------------------
+		System.out.println(Math.ceil(10.1));      // 11.0
+		System.out.println(Math.floor(10.1));     // 10.0
+		System.out.println(Math.round(10.1));     // 10
+		System.out.println(Math.round(10.5));     // 11
+		System.out.println();
+		
+		//java.lang.Math: max(), min()------------------------------------
+		System.out.println(Math.max(3.14, 3.14159)); // 3.14159
+		System.out.println(Math.min(3.14, 3.14159)); // 3.14
+		System.out.println();
+		
+		//java.lang.Enum: 선언 ------------------------------------
+		enum Rainbow { 
+		    RED(3), ORANGE(10), YELLOW(21), GREEN(5), BLUE(1), INDIGO(-1), VIOLET(-11);
+			// 원래는 0부터 1,2,3 이렇게 가는데 위처럼 특정 값을 지정하고싶으면 괄호 안에 써주고, 밑에 변수랑 생성자 추가해야함. 
+		    private final int value;
+		    Rainbow(int value) { this.value = value; }
+		    public int getValue() { return value; }
+		}
+		
+		Rainbow[] arr = Rainbow.values(); // 해당 열거체의 모든 상수를 저장한 배열을 생성, 반환.
+		for(Rainbow r: arr) {
+			System.out.println(r);
+		}
+		System.out.println();
+		
+		//java.lang.Enum: valueOf() ------------------------------------
+		Rainbow r2 = Rainbow.valueOf("RED");//해당 열거체 상수 순서를 반환 
+		System.out.println(r2);
+		System.out.println();
+		
+		//java.lang.Enum: ordinal() ------------------------------------
+		System.out.println(Rainbow.GREEN.ordinal()); //해당 열거체 상수 순서를 반환 
 		System.out.println();
 	}
 }
