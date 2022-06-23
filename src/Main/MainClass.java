@@ -46,8 +46,16 @@ public class MainClass {
 		System.out.println(class2 instanceof Class1); // true: Class2인스턴스를 참조했지만 Class2가 결국 Class1을 상속해서 둘다 가지고있는것. 
 		System.out.println(class2 instanceof Class2);
 		
-		// abstract method --------------------------------------------------------
-		
+		// java.lang.Object class methods --------------------------------------------------------
+		//toString()
+		System.out.println(class1.toString()); 
+		//equals()
+		Class1 test1 = new Class1();
+		Class1 test2 = new Class1();
+		System.out.println(test1.equals(test2)); 
+		test1 = test2;
+		System.out.println(test1.equals(test2));
+		//
 		
 	}
 

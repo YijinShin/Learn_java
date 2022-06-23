@@ -24,7 +24,6 @@ interface Animal{ //일반 상수, 추상 메소드만 가질 수 있음.
 interface Pet{ //일반 상수, 추상 메소드만 가질 수 있음. 
 	public abstract void play(); // 추상 메소드
 }
-
 class Cat implements Animal, Pet{
 	public void cry(){System.out.println("야옹");} 
 	public void play(){System.out.println("놀자");} 
